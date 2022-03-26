@@ -22,6 +22,11 @@
       </div>
     </div>
     <router-view/>
+  <div class="footer">
+    <div class="contact-info">
+      <p><a href="https://github.com/BYUCS260/grocery-store-westdanika">GitHub Lab3 Portfolio</a></p>
+    </div>
+  </div>
   </div>
 </template>
 
@@ -89,5 +94,16 @@ body {
 
 .browse {
   margin-right: 50px;
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #D9D9D9;
+  /* FIX THE BACKGROUND COLOR */
+  height: 6em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
 }
 </style>

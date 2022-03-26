@@ -59,6 +59,7 @@ export default {
   padding-right: 100px;
   padding-left: 40px;
   margin: -10px;
+  width: 500px;
 }
 
 .image {
