@@ -3,20 +3,21 @@
     <div id="menu">
       <div id="brand">
         <router-link to="/">
-          <img src="/images/logo.png">
+          <img src="/images1/Northwest Repository-logos_transparent.png">
         </router-link>
       </div>
       <div id="side">
+        <div class="menu-item reviews">
+          <button><a href="http://northwestrepository.westdanika.com/">Reviews</a></button>
+        </div>
         <router-link to="/browse">
           <div class="menu-item browse">
-            <img src="/images/globe.png">
-            <p>Browse</p>
+            <button>Browse</button>
           </div>
         </router-link>
         <router-link to="/cart">
           <div class="menu-item">
-            <img src="/images/love.png">
-            <p>{{numItemsInCart}} items</p>
+            <button>Cart: {{numItemsInCart}} items</button>
           </div>
         </router-link>
       </div>
@@ -47,20 +48,23 @@ export default {
 }
 
 body {
-  margin: 50px 100px;
-
+  //padding: 25px 100px;
+  font-family: "Voltaire", sans-serif;
 }
 
 #menu {
+  padding: 25px 75px 0px 75px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 5px;
   grid-template-areas: "none brand side";
-  margin-bottom: 50px;
+  margin-bottom: 25px;
+  background: #D9D9D9;
 }
 
 #menu a {
-  color: #B84901;
+  color: #F76F72;
+  text-decoration: none;
 }
 
 #brand {
@@ -70,7 +74,7 @@ body {
 }
 
 #brand img {
-  height: 200px;
+  height: 300px;
 }
 
 #side {
@@ -86,14 +90,25 @@ body {
 .menu-item {
   display: flex;
   flex-direction: column;
+  margin-left: 50px;
 }
 
 .menu-item p {
   margin: 0px;
 }
 
-.browse {
-  margin-right: 50px;
+button {
+  height: 50px;
+  background: #D9D9D9;
+  color: #F76F72;
+  border-color: #F76F72;
+  border-radius: 0.25rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+button:hover {
+  color: #D9D9D9;
+  background-color: #F76F72;
 }
 
 /* Footer Styles */
@@ -104,6 +119,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px;
+  padding: 20px;
 }
 </style>

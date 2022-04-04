@@ -2,10 +2,12 @@
 <div>
   <div class="pure-menu pure-menu-horizontal">
     <ul class="pure-menu-list">
-      <li class="pure-menu-item"><a @click="select('United States')" href="#" class="pure-menu-link">United States</a></li>
-      <li class="pure-menu-item"><a @click="select('Canada')" href="#" class="pure-menu-link">Canada</a></li>
-      <li class="pure-menu-item"><a @click="select('Mexico')" href="#" class="pure-menu-link">Mexico</a></li>
-      <li class="pure-menu-item"><a @click="select('Brazil')" href="#" class="pure-menu-link">Brazil</a></li>
+      <li class="pure-menu-item"><a @click="select('Contemporary')" href="#" class="pure-menu-link">Contemporary</a></li>
+      <li class="pure-menu-item"><a @click="select('Dystopian')" href="#" class="pure-menu-link">Dystopian</a></li>
+      <li class="pure-menu-item"><a @click="select('Fantasy')" href="#" class="pure-menu-link">Fantasy</a></li>
+      <li class="pure-menu-item"><a @click="select('Historical Fiction')" href="#" class="pure-menu-link">Historical Fiction</a></li>
+      <li class="pure-menu-item"><a @click="select('Mystery')" href="#" class="pure-menu-link">Mystery</a></li>
+      <li class="pure-menu-item"><a @click="select('Science Fiction')" href="#" class="pure-menu-link">Science Fiction</a></li>
     </ul>
   </div>
   <ProductList :products="products" />
@@ -21,18 +23,29 @@ export default {
   },
   data() {
     return {
-      country: '',
+      genre: '',
     }
   },
   computed: {
     products() {
-      return this.$root.$data.products.filter(product => product.country === this.country);
+      return this.$root.$data.products.filter(product => product.genre === this.genre);
     }
   },
   methods: {
-    select(country) {
-      this.country = country;
+    select(genre) {
+      this.genre = genre;
     }
   }
 }
 </script>
+
+<style>
+.pure-menu-item {
+  padding: 10px;
+  margin: 10px;
+}
+li {
+  background: #D9D9D9;
+  border-radius: .25rem;
+}
+</style>
