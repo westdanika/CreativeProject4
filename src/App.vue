@@ -25,7 +25,7 @@
     <router-view/>
   <div class="footer">
     <div class="contact-info">
-      <p><a href="https://github.com/BYUCS260/grocery-store-westdanika">GitHub Lab3 Portfolio</a></p>
+      <p><a href="https://github.com/westdanika/CreativeProject3">GitHub CreativeProject3 Portfolio</a></p>
     </div>
   </div>
   </div>
