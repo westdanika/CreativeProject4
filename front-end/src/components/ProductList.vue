@@ -30,7 +30,7 @@ export default {
       price: null,
       addItem: null,
     }
-  }
+  },
   props: {
     products: Array
   },
@@ -39,7 +39,7 @@ export default {
 //      this.$root.$data.cart.push(product);
 //      //console.log(this.$root.$data.cart);
 //    }
-    async addToCart(product) {
+    async addToCart() {
       try {
         let response = await axios.post("/api/cart" , {
           title: this.title,
