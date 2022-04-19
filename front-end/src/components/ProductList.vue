@@ -29,27 +29,30 @@ export default {
       genre: "",
       price: null,
       addItem: null,
+      findItem: null,
+      error: "",
     }
   },
   props: {
     products: Array
   },
   methods: {
-//    addToCart(product) {
-//      this.$root.$data.cart.push(product);
-//      //console.log(this.$root.$data.cart);
-//    }
-    async addToCart() {
-      try {
-        let response = await axios.post("/api/cart" , {
-          title: this.title,
-          author: this.author,
-          genre: this.genre,
-          price: this.price,
-        });
-        this.addItem = response.data;
+  async addToCart(product) {
+    //console.log("Adding item to Cart");
+    //console.log(this.$root.$data.products);
+    this.findItem = product;
+    //console.log(this.findItem.name);
+    try {
+      let response = await axios.post("/api/cart" , {
+        title: this.findItem.name,
+        author: this.findItem.author,
+        genre: this.findItem.genre,
+        price: this.findItem.price,
+      });
+      this.addItem = response.data;
+      //console.log(response.data);
       } catch (error) {
-        console.log(error);
+        this.error = error.response.data.message;
       }
     },
   }

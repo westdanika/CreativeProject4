@@ -19,7 +19,7 @@ const itemSchema = new mongoose.Schema({
   title: String,
   author: String,
   genre: String,
-  price: Number,
+  price: String,
 });
 
 // Create a model for items in the museum.
@@ -40,6 +40,7 @@ app.get('/api/cart', async (req, res) => {
 
 // Create a new item in the cart: takes a title, author, genre, and price of an item
 app.post('/api/cart', async (req, res) => {
+  //console.log("Adding new item to cart with title: " + req.body.title);
   const item = new Item({
     title: req.body.title,
     author: req.body.author,
@@ -50,7 +51,7 @@ app.post('/api/cart', async (req, res) => {
     await item.save();
     res.send(item);
   } catch (error) {
-    console.log(error);
+    //console.log(error);
     res.sendStatus(500);
   }
 });

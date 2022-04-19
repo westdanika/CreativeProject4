@@ -4,7 +4,7 @@
       <div v-if="productAmount === 0" class="emptyCart">Your Cart is Empty</div>
       <div v-else class="product" v-for="product in cart" :key="product.id">
         <div class="info">
-          <h1>{{product.name}}</h1>
+          <h1>{{product.title}}</h1>
           <p>{{product.author}}</p>
         </div>
         <div class="price">
@@ -28,42 +28,38 @@ export default {
     genre: "",
     price: null,
     findItem: null,
-    cart: []
+    cart: [],
+    productAmount: 0,
+    error: "",
     }
   },
-//  props: {
-//    cart: Array
-//  },
   created() {
-  this.getItems();
-  },
-  computed: {
-    productAmount() {
-      return this.$root.$data.cart.length;
-    }
+    this.getItems();
   },
   methods: {
-//    removeFromCart(product) {
-//      this.$root.$data.cart.splice(this.$root.$data.cart.indexOf(product),1);
-//      //console.log(this.$root.$data.cart);
-//    }
     async removeFromCart(product) {
+      //console.log("Removing item from cart");
+      //console.log(this.$root.$data.products);
+      this.findItem = product;
+      //console.log(this.findItem);
       try {
-        await axios.delete("/api/cart/" + product.id);
+        await axios.delete("/api/cart/" + this.findItem._id);
         this.findItem = null;
         this.getItems();
-        return true;
       } catch (error) {
-        console.log(error);
+        this.error = error.response.data.message;
       }
     },
     async getItems() {
+      //console.log("Getting all items in cart");
       try {
         let response = await axios.get("/api/cart");
-        this.items = response.data;
-          return true;
+        //console.log(response.data);
+        this.cart = response.data;
+        this.productAmount = response.data.length;
+        //console.log(this.cart);
       } catch (error) {
-        console.log(error);
+        this.error = error.response.data.message;
       }
     },
   }
@@ -109,6 +105,7 @@ export default {
 
 button {
   height: 30px;
+  width: 200px;
   background: #FFFFFF;
   color: #F76F72;
   border-color: #F76F72;

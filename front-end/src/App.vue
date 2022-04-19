@@ -17,7 +17,7 @@
         </router-link>
         <router-link to="/cart">
           <div class="menu-item">
-            <button>Cart: {{numItemsInCart}} items</button>
+            <button>Cart</button>
           </div>
         </router-link>
       </div>
@@ -25,7 +25,7 @@
     <router-view/>
   <div class="footer">
     <div class="contact-info">
-      <p><a href="https://github.com/westdanika/CreativeProject3">GitHub CreativeProject3 Portfolio</a></p>
+      <p><a href="https://github.com/westdanika/CreativeProject4">GitHub CreativeProject4 Portfolio</a></p>
     </div>
   </div>
   </div>
@@ -33,12 +33,7 @@
 
 <script>
 export default {
-  name: 'App',
-  computed: {
-    numItemsInCart() {
-      return this.$root.$data.cart.length;
-    }
-  }
+  name: 'App'
 }
 </script>
 
@@ -99,6 +94,7 @@ body {
 
 button {
   height: 50px;
+  width: 100px;
   background: #D9D9D9;
   color: #F76F72;
   border-color: #F76F72;
